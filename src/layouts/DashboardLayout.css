@@ -1,0 +1,219 @@
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background: radial-gradient(circle at top right, #1a2333, #0b0f1a);
+    color: var(--text-main);
+}
+
+.sidebar {
+    width: 280px;
+    background: rgba(21, 27, 45, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+    position: fixed;
+    height: 100vh;
+    z-index: 50;
+}
+
+.sidebar-header {
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-box {
+    box-shadow: 0 0 20px hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.3);
+}
+
+.sidebar-header h2 {
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+    background: linear-gradient(to right, #fff, var(--text-dim));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sidebar-nav {
+    padding: 1rem 0.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.875rem 1.25rem;
+    border-radius: var(--radius-md);
+    color: var(--text-dim);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+}
+
+.nav-item:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-item.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--shadow-primary);
+}
+
+.sidebar-footer {
+    padding: 1.5rem 0.75rem;
+    border-top: 1px solid var(--border);
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 280px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.header {
+    height: 80px;
+    background: rgba(11, 15, 26, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
+}
+
+.user-profile:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.user-info {
+    text-align: right;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: #fff;
+    display: block;
+}
+
+.user-role {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.avatar {
+    border: 2px solid var(--border-bright);
+    color: var(--primary);
+}
+
+.content-area {
+    padding: 2.5rem;
+    flex: 1;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.notifications-dropdown {
+    position: absolute;
+    top: calc(100% + 1rem);
+    right: 0;
+    width: 320px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-bright);
+    box-shadow: var(--shadow-lg);
+    padding: 1rem;
+    z-index: 100;
+}
+
+.dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.dropdown-header h3 {
+    font-size: 1rem;
+}
+
+.notification-item {
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.notification-item:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.notification-item p {
+    font-size: 0.875rem;
+    color: var(--text-main);
+    margin-bottom: 0.25rem;
+}
+
+.notification-item span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.notification-item.read {
+    opacity: 0.6;
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 80px;
+    }
+
+    .sidebar-header h2,
+    .nav-item span,
+    .user-info {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 80px;
+    }
+
+    .sidebar-header {
+        justify-content: center;
+    }
+
+    .nav-item {
+        justify-content: center;
+        padding: 1rem;
+    }
+}

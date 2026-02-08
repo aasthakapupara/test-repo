@@ -1,0 +1,335 @@
+:root {
+  /* Core Colors - Sophisticated HSL Palette */
+  --primary-h: 235;
+  --primary-s: 85%;
+  --primary-l: 65%;
+  --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  --primary-hover: hsl(var(--primary-h), var(--primary-s), 55%);
+  --primary-light: hsl(var(--primary-h), var(--primary-s), 95%);
+  --primary-glow: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.15);
+
+  --secondary-h: 215;
+  --secondary-s: 25%;
+  --secondary-l: 60%;
+  --secondary: hsl(var(--secondary-h), var(--secondary-s), var(--secondary-l));
+
+  --bg: #0b0f1a;
+  --card-bg: #151b2d;
+  --card-hover: #1c243a;
+
+  --text-main: #f1f5f9;
+  --text-dim: #94a3b8;
+  --text-muted: #64748b;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-bright: rgba(255, 255, 255, 0.15);
+
+  --error: #ef4444;
+  --success: #10b981;
+  --warning: #f59e0b;
+
+  /* Tokens */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-primary: 0 10px 15px -3px hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.2);
+
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: rgba(21, 27, 45, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.glass-bright {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-bright);
+}
+
+/* Global Transitions */
+a,
+button,
+input,
+select,
+textarea {
+  transition: var(--transition);
+}
+
+/* Typography Enhancements */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+
+/* Global Component Styles */
+.content-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.content-card:hover {
+  border-color: var(--border-bright);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent-color, var(--primary));
+  opacity: 0.8;
+}
+
+.stat-card:hover {
+  transform: scale(1.02);
+  border-color: var(--accent-color, var(--primary));
+  box-shadow: 0 10px 30px -10px hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.1);
+}
+
+.stat-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color, var(--primary));
+  transition: var(--transition);
+}
+
+.stat-card:hover .stat-icon {
+  background: var(--accent-color, var(--primary));
+  color: white;
+  transform: rotate(-5deg);
+}
+
+.stat-info h3 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+.stat-info p {
+  color: var(--text-dim);
+  font-size: 0.875rem;
+}
+
+/* Loading Effects */
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 0.5rem;
+  color: var(--primary);
+  font-weight: 600;
+  animation: pulse 2s infinite;
+}
+
+/* Simple Button styles for global use */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--primary);
+  text-decoration: underline;
+  padding: 0;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.btn-link:hover {
+  color: var(--primary-hover);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+/* Date Picker Styles */
+.date-picker-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.date-picker-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+}
+
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.react-datepicker {
+    font-family: inherit;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+}
+
+.react-datepicker__header {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+    color: var(--text-primary);
+}
+
+.react-datepicker__day {
+    color: var(--text-secondary);
+}
+
+.react-datepicker__day:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.react-datepicker__day--selected {
+    background: var(--primary);
+    color: white;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background: var(--primary-light);
+    color: var(--primary);
+}

@@ -1,0 +1,124 @@
+/* App.css - Common page structures */
+
+.management-page {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.page-header {
+  margin-bottom: 2.5rem;
+}
+
+.header-content h1 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #fff 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-content p {
+  color: var(--text-dim);
+  font-size: 1.125rem;
+}
+
+/* Form Styles */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input,
+select,
+textarea {
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-size: 0.9375rem;
+  width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* Badges */
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+}
+
+.badge-primary {
+  background: var(--primary-glow);
+  color: var(--primary);
+}
+
+.badge-success {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.badge-error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* Alerts */
+.alert {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9375rem;
+  border: 1px solid transparent;
+}
+
+.alert-info {
+  background: rgba(99, 102, 241, 0.05);
+  border-color: rgba(99, 102, 241, 0.2);
+  color: var(--text-main);
+}
+
+.alert-success {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.alert-error {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}

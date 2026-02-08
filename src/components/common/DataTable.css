@@ -1,0 +1,116 @@
+.table-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.table-container:hover {
+    border-color: var(--border-bright);
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    padding: 1.25rem 1.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+}
+
+td {
+    padding: 1.25rem 1.5rem;
+    font-size: 0.875rem;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr {
+    transition: var(--transition);
+}
+
+tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+    color: #fff;
+}
+
+.table-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-bright);
+    color: #fff;
+}
+
+.action-btn.edit:hover {
+    background: var(--primary-glow);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.action-btn.delete:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+    border-color: var(--error);
+}
+
+.action-btn.assign:hover {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    border-color: var(--success);
+}
+
+.empty-state {
+    padding: 6rem 2rem;
+    text-align: center;
+    color: var(--text-dim);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.empty-state::before {
+    content: '📭';
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+}
